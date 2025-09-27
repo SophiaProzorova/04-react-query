@@ -3,10 +3,11 @@ import type { Movie } from "../types/movie";
 
 interface MovieHttpResponse {
   results: Movie[];
-  totalPages: number;
+  total_pages: number; 
 };
 
-export const fetchMovies =  async (query: string, page: number): Promise<MovieHttpResponse> => {    
+
+export const fetchMovies =  async (query: string, page: number): Promise<{results: Movie[]; totalPages: number}> => {    
       const API_KEY = import.meta.env.VITE_API_KEY;
 
       const options = {
